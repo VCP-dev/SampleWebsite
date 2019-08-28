@@ -1,0 +1,197 @@
+﻿<html>
+<head>
+    <title>Prac</title>
+    <style>
+        html
+        {
+            background-color:grey;
+            min-height:40px;
+            margin-left:2%;
+            margin-right:2%;
+        }
+        #header
+        {
+            min-height:100px;
+            background-color:black;
+
+             margin-left:5%;
+            margin-right:5%;
+            color:#00ff21;
+
+             padding-left:2em;
+             padding-right:2em;
+
+            font-size:1.3em;
+
+            box-shadow:3px 5px 7px #808080;
+            border: 0.5em solid #00ff21;
+                       
+        }
+        #menu
+        {
+            min-height:40px;
+            background-color:black;
+             margin-top:3%;
+             
+        }
+        #body{
+            min-height:200px;
+            background-color:black;
+            margin-top:3%;
+            
+
+        }
+        #footer{
+            min-height:120px;
+            margin-top:5%;
+            background-color:black;
+            padding-top:1em;
+            
+        }
+
+        #comments{
+            margin-top:3%;
+            background-color:black;
+            padding-bottom:1em;
+        }
+
+        #comments,#body,#menu,#footer{
+            margin-left:5%;
+            margin-right:5%;
+            color:#00ff21;
+            padding-left:2em;
+            font-size:1.08em;
+             padding-right:2em;
+             
+
+            box-shadow:0.2em 1.2em 0.9em #00ff21;
+            border:0.2em solid #00ff21;
+            border-radius:1em;
+           
+        }
+
+        #But{
+            padding-left:0.2em;
+            background-color:#00ff21;
+            color:black;
+        }
+
+        #todoList li{
+             background-color:#00ff21;
+            color:black;
+            margin-right:5%;
+            margin-left:5%;
+            min-height:50px;
+            margin-top:2%;
+            background-color:#00ff21;
+             border:0.2em solid black;
+            border-radius:1em;
+            color:black;
+            padding-top:0.2em;
+            padding-left:0.4em;
+            font-size:1.2em;
+            font-weight:bold;
+           
+        }
+
+        #todoList li {
+           transition: all 0.2s ease-out;
+           opacity: 0;
+           height: 0.1em;
+        }
+
+        #todoList li.show {
+          opacity: 1;
+          height:1.5em;
+        }
+
+        .title{
+            border: 0.1em solid #00ff21;
+            padding-top:0.1em;
+            padding-bottom:0.1em;
+            padding-left:0.4em;
+        }
+        
+    </style>
+
+
+
+    <script>
+
+             
+
+                /* function Remove(item){
+                        document.getElementById("todoList").removeChild(item)
+                    }    */
+
+
+        function todoList() {
+
+            var item = document.getElementById("todoinput").value;
+            if (item.length != 0) {
+                // var item = document.getElementById("todoinput").value
+                var text = document.createTextNode("" + item)
+                var newItem = document.createElement("li")
+                newItem.appendChild(text)
+                document.getElementById("todoList").appendChild(newItem)
+                setTimeout(function () {
+                    newItem.className = newItem.className + "show";
+                }, 10)
+                document.getElementById("todoinput").value = "";
+            }
+            else {
+                alert("Please enter comment");
+            }
+        }
+
+
+    
+
+
+    </script>
+
+
+
+</head>
+<body>
+    <div id="header">
+        <h1>Normal Website</h1>
+    </div>
+
+    <div id="menu">
+        <p class="title">MENU:</p>
+        <ol>
+            <li>CONTENT</li>
+            <li>COMMENTS</li>
+            <li>FOOTER</li>
+        </ol>
+    </div>
+
+    <div id="body">
+        <p class="title">CONTENT:</p>
+        <ul>
+            <li>First web-app</li>
+            <li>Font and colours are useless</li>
+            <li>Shadows aren't showing</li>
+            <li>Padding is all over the place</li>
+            <li>Comments don't fit</li>
+        </ul>
+    </div>
+
+    <div id="comments">
+        <p class="title">COMMENTS:</p>
+        <input id="todoinput" placeholder="Enter your comments here:">
+        <button id="But" type="button" onclick="todoList()">Post</button>
+        <!--<ul id="todoList" style="list-style-type: none"></ul>-->
+    </div>
+
+    <ul id="todoList" style="list-style-type:none"></ul>
+
+    <div id="footer">
+        <p class="title">ABOUT:</p>
+        <p>Copyright(TM) VCP 2019-2072</p>
+    </div>
+
+
+</body>
+</html>
